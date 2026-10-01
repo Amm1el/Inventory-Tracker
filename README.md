@@ -1,37 +1,44 @@
-Check
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Inventory Tracker
 
-## Getting Started
+A web-based inventory manager with live item search, running totals, and a recent-activity log, backed by Firebase Firestore.
 
-First, run the development server:
+**Live site:** https://inventory-tracker-delta.vercel.app
+
+## Features
+
+- Add items, or increase the quantity of an item that already exists.
+- Remove items one unit at a time; an item is deleted when its quantity reaches zero.
+- Search the inventory by item name.
+- Running totals for total quantity, unique items, additions, and deletions.
+- A recent-activity log of every add and remove.
+
+## How it works
+
+Each item is a document in a Firestore `inventory` collection, keyed by item name, with a `quantity` field. Every add or remove reads the document, updates the quantity, and refreshes the totals.
+
+## Tech stack
+
+| Layer | Tools |
+|---|---|
+| Frontend | Next.js 14, React, Material UI |
+| Database | Firebase Firestore |
+| Hosting | Vercel |
+
+## Run locally
 
 ```bash
+git clone https://github.com/Amm1el/Inventory-Tracker.git
+cd Inventory-Tracker
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Firebase project settings live in `firebase.js`.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Context
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Built during the Headstarter AI Software Engineering Fellowship (Summer 2024).
 
-## Learn More
+## Author
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Ammiel Bowen · [ammielbowen.com](https://ammielbowen.com) · [LinkedIn](https://www.linkedin.com/in/ammielbowen/)
